@@ -9,7 +9,7 @@ import {
     Box, Center,
     ChakraProvider,
     HStack, SimpleGrid,
-    Stack, Text, Wrap, WrapItem
+    Stack, Tab, TabList, TabPanel, TabPanels, Tabs, Text, Wrap, WrapItem
 } from "@chakra-ui/react";
 import Generation from "./components/Main/Generation.jsx";
 import Logic from "./components/Main/Logic.jsx";
@@ -48,15 +48,16 @@ function App() {
           <Center mt={5}>
               <StyledBox maxWidth='1200px'>
                   <Generation/>
-                  <Accordion defaultIndex={[0]} allowMultiple>
-                      <AccordionItem>
-                          <AccordionButton>
-                              <Box flex='1' textAlign='left' fontSize={20} fontWeight={'bold'}>
-                                  Main
-                              </Box>
-                              <AccordionIcon />
-                          </AccordionButton>
-                          <AccordionPanel>
+                  <Tabs isFitted variant='enclosed'>
+                      <TabList mb='1em'>
+                          <Tab>Main</Tab>
+                          <Tab>Items</Tab>
+                          <Tab>Gameplay</Tab>
+                          <Tab>Special</Tab>
+                          <Tab>User options</Tab>
+                      </TabList>
+                      <TabPanels>
+                          <TabPanel>
                               <SimpleGrid columns={3} spacing={5} minChildWidth={365}>
                                   <Seed/>
                                   <Logic/>
@@ -64,16 +65,8 @@ function App() {
                                   <RaceMode/>
                                   <SpoilerFormat/>
                               </SimpleGrid>
-                          </AccordionPanel>
-                      </AccordionItem>
-                      <AccordionItem>
-                          <AccordionButton>
-                              <Box flex='1' textAlign='left' fontSize={20} fontWeight={'bold'}>
-                                  Items
-                              </Box>
-                              <AccordionIcon />
-                          </AccordionButton>
-                          <AccordionPanel>
+                          </TabPanel>
+                          <TabPanel>
                               <SimpleGrid columns={3} spacing={5} minChildWidth={365}>
                                   <HeartPieces/>
                                   <HiddenSeaShells/>
@@ -84,16 +77,8 @@ function App() {
                                   <AddRooster/>
                                   <BoomerangTrade/>
                               </SimpleGrid>
-                          </AccordionPanel>
-                      </AccordionItem>
-                      <AccordionItem>
-                          <AccordionButton>
-                              <Box flex='1' textAlign='left' fontSize={20} fontWeight={'bold'}>
-                                  Gameplay
-                              </Box>
-                              <AccordionIcon />
-                          </AccordionButton>
-                          <AccordionPanel>
+                          </TabPanel>
+                          <TabPanel>
                               <SimpleGrid columns={3} spacing={5} minChildWidth={365}>
                                   <DungeonItems/>
                                   <RandomStartLocation/>
@@ -107,38 +92,20 @@ function App() {
                                   <HardMode/>
                                   <Stealing/>
                               </SimpleGrid>
-                          </AccordionPanel>
-                      </AccordionItem>
-                      <AccordionItem>
-                          <AccordionButton>
-                              <Box flex='1' textAlign='left' fontSize={20} fontWeight={'bold'}>
-                                  Special
-                              </Box>
-                              <AccordionIcon />
-                          </AccordionButton>
-                          <AccordionPanel>
+                          </TabPanel>
+                          <TabPanel>
                               <SimpleGrid columns={3} spacing={5} minChildWidth={365}>
                                   <GoodBoyMode/>
                                   <Overworld/>
                                   <OwlStatues/>
                                   <EnableSuperWeapons/>
                               </SimpleGrid>
-                          </AccordionPanel>
-                      </AccordionItem>
-                      <AccordionItem>
-                          <AccordionButton>
-                              <Box flex='1' textAlign='left' fontSize={20} fontWeight={'bold'}>
-                                  User options
-                              </Box>
-                              <AccordionIcon />
-                          </AccordionButton>
-                          <AccordionPanel>
-                              <SimpleGrid columns={3} spacing={5} minChildWidth={365}>
-                                  <Text>Todo</Text>
-                              </SimpleGrid>
-                          </AccordionPanel>
-                      </AccordionItem>
-                  </Accordion>
+                          </TabPanel>
+                          <TabPanel>
+                            Todo
+                          </TabPanel>
+                      </TabPanels>
+                  </Tabs>
               </StyledBox>
           </Center>
       </ChakraProvider>
