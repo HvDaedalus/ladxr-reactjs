@@ -2,7 +2,7 @@
 # LADXR Web UI
 This project is created due to the old generator being based on PHP, Python and Bootstrap utilizing 3 different frameworks. 
 
-This project will include the original LADXR written in Python.
+This project includes the original [LADXR](https://github.com/daid/LADXR) written in Python.
 
 The ultimate goal of this project:
 Transferring the hostage and removing the requirement of a backend server.
@@ -25,6 +25,7 @@ Used Frameworks:
 <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer">
   <img src="https://vitejs.dev/logo.svg" alt="Vite logo" width="38">Vite⚡
 </a>
+<br/>
 <a href="https://github.com/pyodide/pyodide">
-  <img src="./docs/_static/img/pyodide-logo-readme.png" alt="Pyodide" height="38">
+  <img src="https://github.com/pyodide/pyodide/blob/main/docs/_static/img/pyodide-logo.png?raw=true" alt="Pyodide" height="38">
 </a>
