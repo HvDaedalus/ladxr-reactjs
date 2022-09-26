@@ -7,10 +7,10 @@ This project includes the original [LADXR](https://github.com/daid/LADXR) writte
 The ultimate goal of this project:
 Transferring the hostage and removing the requirement of a backend server.
 
-Benefits:
-Reduced cost - A server backend for this part of the application is no longer needed.
-Quality of Life improvements (like caching the ROM in the Browser)
-Removing the risk of a DMCA-Takedown due to ROM-transfer.
+## Benefits:
+- Reduced cost - A server backend for this part of the application is no longer needed.
+- Quality of Life improvements (like caching the ROM in the Browser)
+- Removing the risk of a DMCA-Takedown due to ROM-transfer.
 
 Used Frameworks:
 
