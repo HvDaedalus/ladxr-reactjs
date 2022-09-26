@@ -25,3 +25,6 @@ Used Frameworks:
 <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer">
   <img src="https://vitejs.dev/logo.svg" alt="Vite logo" width="38">Vite⚡
 </a>
+<a href="https://github.com/pyodide/pyodide">
+  <img src="./docs/_static/img/pyodide-logo-readme.png" alt="Pyodide" height="38">
+</a>
