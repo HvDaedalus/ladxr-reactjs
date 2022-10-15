@@ -2,17 +2,18 @@ import ZeldaSelectBox from "../UI/ZeldaSelectBox.jsx";
 import StyledBox from "../UI/StyledBox.jsx";
 import {useContext} from "react";
 import RandoContext from "../../store/rando-context.jsx";
-import {Stack, Text} from "@chakra-ui/react";
+import {Stack, Tag, TagCloseButton, TagLabel, Text} from "@chakra-ui/react";
+import ZeldaTag from "../UI/ZeldaTag.jsx";
+
+export const options = [{value: 'CASUAL', text:'Casual'},{value: 'NORMAL', text:'Normal'}, {value: 'HARD', text: 'Hard'}, {value: 'GLITCHED', text: 'Glitched'}, {value: 'HELL', text: 'Hell'}];
 
 const Logic = props => {
 
     const randoCtx = useContext(RandoContext);
-
     const logicChangeHandler = (event) => {
         randoCtx.updateSetting({name: 'logic', value: event.target.value});
-    }
 
-    const options = [{value: 'CASUAL', text:'Casual'},{value: 'NORMAL', text:'Normal'}, {value: 'HARD', text: 'Hard'}, {value: 'GLITCHED', text: 'Glitched'}, {value: 'HELL', text: 'Hell'}];
+    }
     const tooltip = <Stack>
         <Text as='span'>Affects where items are allowed to be placed.</Text>
         <Text as='span'>[Casual] Same as normal, except that a few more complex options are removed, like removing bushes with powder and killing enemies with powder or bombs.</Text>
@@ -26,6 +27,16 @@ const Logic = props => {
     return <StyledBox>
         <ZeldaSelectBox label='Logic:' value={randoCtx.logic} options={options} tooltip={tooltip} onChange={logicChangeHandler}/>
     </StyledBox>
+}
+
+export const LogicTag = props => {
+    const randoCtx = useContext(RandoContext);
+
+    const onCloseTagHandler = () => {
+        randoCtx.resetToDefault('logic');
+    }
+
+    return <ZeldaTag label={`Logic: ${options.filter(option => option.value === randoCtx.logic)[0].text}`} onClose={onCloseTagHandler}/>
 }
 
 export default Logic;

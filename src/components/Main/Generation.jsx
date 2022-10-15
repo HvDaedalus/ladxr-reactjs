@@ -6,7 +6,6 @@ import {loadPyodide} from "pyodide";
 const Generation = props => {
 
     const fileInputRef = useRef();
-    const invalidFileDialogRef = useRef();
     const toast = useToast();
 
     const [fileLoaded, setFileLoaded] = useState(false);
@@ -77,7 +76,6 @@ const Generation = props => {
 
     return (
         <HStack margin={3}>
-            <InvalidFileDialog ref={invalidFileDialogRef}/>
             <Button width='100%' onClick={selectFileButtonHandler} border={fullyLoaded ? '1px solid green' : '1px solid red'}>Select input ROM</Button>
             <input type='file' ref={fileInputRef} id='romfile' style={{display: 'none'}} onChange={selectFileHandler}/>
             <Button disabled={!fullyLoaded} width='100%' onClick={randomizeClickHandler} isLoading={!fullyLoaded} loadingText={fileLoaded ? 'Loading LADXR...' : 'Awaiting ROM selection'}>Randomize!</Button>

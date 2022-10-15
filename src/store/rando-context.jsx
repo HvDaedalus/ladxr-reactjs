@@ -30,19 +30,21 @@ const RandoContext = createContext({
     shop_stealing: 'NORMAL',
     //special settings
     good_boy_mode: 'DISABLED',
-    overworld: 'NORMAL',
+    overworld: 'normal',
     owl_statues: 'NEVER',
     enable_super_weapons: false,
     //user_options
-    quickswap: 'DISABLED',
-    text_mode: 'FAST',
+    quickswap: 'none',
+    text_mode: 'fast',
     low_hp_beeps: 'SLOW',
     remove_flashing_lights: true,
     show_nag_messages: false,
     graphics: 'DEFAULT',
     link_color: 'NORMAL',
     music: 'DEFAULT',
-    updateSetting: (setting) => {}
+    updateSetting: (setting) => {},
+    isDefault: (setting) => {},
+    resetToDefault: (setting) => {}
 });
 
 export default RandoContext;

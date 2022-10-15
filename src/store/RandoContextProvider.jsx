@@ -1,7 +1,7 @@
 import RandoContext from "./rando-context.jsx";
 import {useReducer} from "react";
 
-const defaultRandoState = {
+export const defaultRandoState = {
     seed: "",
     logic: "NORMAL",
     accessibility: "ALL_LOCATIONS",
@@ -27,17 +27,17 @@ const defaultRandoState = {
     hard_mode: "DISABLED",
     shop_stealing: "NORMAL",
     good_boy_mode: "DISABLED",
-    overworld: "NORMAL",
+    overworld: "normal",
     owl_statues: "NEVER",
     enable_super_weapons: false,
-    quickswap: "DISABLED",
-    text_mode: "FAST",
-    low_hp_beeps: "SLOW",
+    quickswap: "none",
+    text_mode: "fast",
+    low_hp_beeps: "slow",
     remove_flashing_lights: true,
     show_nag_messages: false,
     graphics: "DEFAULT",
-    link_color: "NORMAL",
-    music: "DEFAULT"
+    link_color: "-1",
+    music: ""
 };
 
 const randoReducer = (state, action) => {
@@ -66,6 +66,14 @@ const RandoContextProvider = (props) => {
 
     const updateSettingHandler = updateSetting => {
         dispatchRandoAction({type: 'UPDATE', setting: updateSetting.name, value: updateSetting.value});
+    }
+
+    const isSettingDefaultHandler = setting => {
+        return defaultRandoState[setting] === randoState[setting];
+    }
+
+    const resetToDefaultHandler = setting => {
+        dispatchRandoAction({type: 'UPDATE', setting: setting, value: defaultRandoState[setting]});
     }
 
     const randoProviderContext = {
@@ -110,7 +118,9 @@ const RandoContextProvider = (props) => {
         graphics: randoState.graphics,
         link_color: randoState.link_color,
         music: randoState.music,
-        updateSetting: updateSettingHandler
+        updateSetting: updateSettingHandler,
+        isDefault: isSettingDefaultHandler,
+        resetToDefault: resetToDefaultHandler
     };
     return <RandoContext.Provider value={randoProviderContext}>{props.children}</RandoContext.Provider>
 }
